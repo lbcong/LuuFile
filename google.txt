@@ -1,0 +1,36 @@
+
+
+1. install firefox :
+sudo apt-get update && sudo apt-get install -y iceweasel 
+
+2. #isntall Xvfb
+sudo apt-get -y install Xvfb
+
+sudo Xvfb :10 -ac &
+export DISPLAY=:10
+
+
+x. bien moi truong 
+sudo touch /etc/profile.d/project.sh
+sudo cat <<EOF >/etc/profile.d/project.sh
+export PR_HOME = $HOME/CrawlerSelenium
+export TOMCAT_HOME = $HOME/apache-tomcat-8.0.45
+
+EOF
+
+source /etc/profile.d/project.sh
+
+
+
+x.deploy
+
+
+rm -rf $TOMCAT_HOME/webapps/*.war && rm -rf $TOMCAT_HOME/webapps/*SNAPSHOT && cp  $PR_HOME/target/*.war $TOMCAT_HOME/webapps
+
+
+x. maven:
+mvn -f $PR_HOME install
+
+
+
+3. tomcat :

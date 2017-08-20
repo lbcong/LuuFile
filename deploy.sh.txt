@@ -1,0 +1,1 @@
+rm -rf $TOMCAT_HOME/webapps/*.war && rm -rf $TOMCAT_HOME/webapps/*SNAPSHOT && cp  $PR_HOME/target/*.war $TOMCAT_HOME/webapps

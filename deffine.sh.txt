@@ -1,0 +1,8 @@
+sudo touch /etc/profile.d/project.sh
+sudo cat <<EOF >/etc/profile.d/project.sh
+export PR_HOME = $HOME/CrawlerSelenium
+export TOMCAT_HOME = $HOME/apache-tomcat-8.0.45
+
+EOF
+
+source /etc/profile.d/project.sh
