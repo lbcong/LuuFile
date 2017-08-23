@@ -1,4 +1,6 @@
 
+git clone https://github.com/lbcong/CrawlerSelenium.git
+git clone https://github.com/lbcong/LuuFile.git
 
 1. install firefox :
 sudo apt-get update && sudo apt-get install -y iceweasel 
@@ -11,14 +13,14 @@ export DISPLAY=:10
 
 
 x. bien moi truong 
-sudo touch /etc/profile.d/project.sh
+#sudo touch /etc/profile.d/project.sh
 sudo cat <<EOF >/etc/profile.d/project.sh
 export PR_HOME = $HOME/CrawlerSelenium
 export TOMCAT_HOME = $HOME/apache-tomcat-8.0.45
 
 EOF
 
-source /etc/profile.d/project.sh
+#source /etc/profile.d/project.sh
 
 
 
@@ -34,3 +36,4 @@ mvn -f $PR_HOME install
 
 
 3. tomcat :
+sudo sh /home/apache-tomcat-8.0.45/bin/catalina.sh run  
