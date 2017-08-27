@@ -1,0 +1,19 @@
+git clone https://github.com/lbcong/CrawlerSelenium.git
+git clone https://github.com/lbcong/LuuFile.git
+
+
+PR_HOME=$HOME/CrawlerSelenium
+TOMCAT_HOME=$HOME/LuuFile/apache-tomcat-8.0.46
+sudo chmod 777 -R /home
+cp $HOME/LuuFile/tomcat-users.xml $TOMCAT_HOME/conf
+
+sudo apt-get update && sudo apt-get install -y iceweasel Xvfb
+
+mvn -f $PR_HOME install
+
+rm -rf $TOMCAT_HOME/webapps/*.war && rm -rf $TOMCAT_HOME/webapps/*SNAPSHOT && cp  $PR_HOME/target/*.war $TOMCAT_HOME/webapps
+
+sudo Xvfb :10 -ac &
+export DISPLAY=:10
+
+sudo sh $TOMCAT_HOME/bin/catalina.sh run  

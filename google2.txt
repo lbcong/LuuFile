@@ -1,0 +1,7 @@
+PR_HOME=$HOME/CrawlerSelenium
+TOMCAT_HOME=$HOME/LuuFile/apache-tomcat-8.0.46
+sudo chmod 777 -R $HOME
+sudo apt-get update && sudo apt-get install -y iceweasel Xvfb
+sudo Xvfb :10 -ac &
+export DISPLAY=:10
+sudo sh $TOMCAT_HOME/bin/catalina.sh run  

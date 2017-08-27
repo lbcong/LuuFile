@@ -1,39 +1,51 @@
+x. bien moi truong 
+sudo touch /etc/profile.d/project.sh
+
+sudo nano /etc/profile.d/project.sh
+
+export PR_HOME=$HOME/CrawlerSelenium
+export TOMCAT_HOME=$HOME/LuuFile/apache-tomcat-8.0.46
+
+source /etc/profile.d/project.sh
+
+--------------------------------------
+
 
 git clone https://github.com/lbcong/CrawlerSelenium.git
 git clone https://github.com/lbcong/LuuFile.git
 
-1. install firefox :
-sudo apt-get update && sudo apt-get install -y iceweasel 
+---------------------------------------------------
+cp $HOME/LuuFile/tomcat-users.xml $TOMCAT_HOME/conf
 
+sudo chmod 777 -R /home
+---------------------------------------
+
+1. install firefox :
+sudo apt-get update && sudo apt-get install -y iceweasel Xvfb
+
+----------------------------------------
 2. #isntall Xvfb
-sudo apt-get -y install Xvfb
+//sudo apt-get -y install Xvfb
 
 sudo Xvfb :10 -ac &
 export DISPLAY=:10
 
+42
+-------------------------------------------------
 
-x. bien moi truong 
-#sudo touch /etc/profile.d/project.sh
-sudo cat <<EOF >/etc/profile.d/project.sh
-export PR_HOME = $HOME/CrawlerSelenium
-export TOMCAT_HOME = $HOME/apache-tomcat-8.0.45
+x. maven:
+mvn -f $PR_HOME install
 
-EOF
-
-#source /etc/profile.d/project.sh
-
-
-
+-------------------------------------------
 x.deploy
 
 
 rm -rf $TOMCAT_HOME/webapps/*.war && rm -rf $TOMCAT_HOME/webapps/*SNAPSHOT && cp  $PR_HOME/target/*.war $TOMCAT_HOME/webapps
 
 
-x. maven:
-mvn -f $PR_HOME install
 
 
-
+----------------------------
 3. tomcat :
-sudo sh /home/apache-tomcat-8.0.45/bin/catalina.sh run  
+
+sudo sh $TOMCAT_HOME/bin/catalina.sh run  
