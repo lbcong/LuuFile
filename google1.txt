@@ -1,6 +1,4 @@
 git clone https://github.com/lbcong/CrawlerSelenium.git
-git clone https://github.com/lbcong/LuuFile.git
-
 
 PR_HOME=$HOME/CrawlerSelenium
 TOMCAT_HOME=$HOME/LuuFile/apache-tomcat-8.0.46
